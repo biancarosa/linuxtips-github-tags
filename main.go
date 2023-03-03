@@ -12,8 +12,11 @@ func main() {
 	donoDoRepositorio := "kubernetes"
 	repo := "kubernetes"
 
-	git.BuscaGitTag(tag, donoDoRepositorio, repo)
+	b := git.BuscadorGit{
+		DonoDoRepositorio: donoDoRepositorio,
+		Repo:              repo,
+	}
+	b.BuscaGitTag(tag)
 
-	go git.BuscaGitTag(tag, donoDoRepositorio, repo)
 	fmt.Println("Sai do programa")
 }
